@@ -5,6 +5,10 @@ import conference from '../scenarios/conference.js';
 import lab from '../scenarios/lab-dashboard.js';
 import trip from '../scenarios/trip-planner.js';
 import makePayables from '../scenarios/payables.js';
+import makeKnobs, { KNOB_BASES, KNOB_DS, KNOB_IS } from '../scenarios/knobs.js';
+// Role vocabulary for the hand-written holders. It lives in its own module so
+// the knob generator can read it without importing this file back.
+import { HOLDER_ROLE } from './roles.js';
 
 // The payables cells are one generated scenario at three integration levels
 // and two conflict conditions; their ids are all nine characters so the
@@ -13,26 +17,17 @@ const PAYABLES = Object.fromEntries(
   [1, 2, 4].flatMap((L) => [0, 1].map((M) => { const sc = makePayables({ L, M }); return [sc.id, sc]; })),
 );
 
-export const SCENARIOS = { conference, 'lab-dashboard': lab, 'trip-planner': trip, ...PAYABLES };
+// The dispersion x interference cells: each hidden-profile base at three
+// dispersions and three interference levels, 27 in all. Ids of one base share
+// a length for the same reason the payables ids do.
+const KNOBS = Object.fromEntries(
+  Object.keys(KNOB_BASES).flatMap((base) => KNOB_DS.flatMap((d) => KNOB_IS.map((i) => {
+    const sc = makeKnobs({ base, d, i });
+    return [sc.id, sc];
+  }))),
+);
 
-// Role vocabulary. Near-miss and noise cards draw from the same terms on
-// purpose: a directory whose distractors are obviously irrelevant tests nothing.
-const HOLDER_ROLE = {
-  venue:   { name: 'Venue Operations',      tags: ['venue', 'capacity', 'facilities', 'events'] },
-  program: { name: 'Programme Committee',   tags: ['programme', 'tracks', 'schedule', 'events'] },
-  finance: { name: 'Registration Finance',  tags: ['pricing', 'fees', 'finance', 'billing'] },
-  sales:   { name: 'Group Sales',           tags: ['pricing', 'discounts', 'groups', 'sales'] },
-  access:  { name: 'Accessibility Lead',    tags: ['accessibility', 'captioning', 'inclusion'] },
-  visa:    { name: 'Travel and Visa Desk',  tags: ['visa', 'travel', 'letters', 'logistics'] },
-  ops:     { name: 'Run Operations',        tags: ['runs', 'operations', 'experiments'] },
-  data:    { name: 'Measurement Data',      tags: ['data', 'measurements', 'datasets'] },
-  metrics: { name: 'Metric Definitions',    tags: ['metrics', 'definitions', 'evaluation'] },
-  thresh:  { name: 'Threshold Policy',      tags: ['thresholds', 'cutoffs', 'policy', 'metrics'] },
-  destin:  { name: 'Destination Research',  tags: ['destination', 'itinerary', 'travel'] },
-  transit: { name: 'Transit Pricing',       tags: ['transit', 'pricing', 'passes', 'travel'] },
-  tickets: { name: 'Ticketing and Rates',   tags: ['tickets', 'pricing', 'discounts', 'family'] },
-  hours:   { name: 'Opening Hours Desk',    tags: ['hours', 'closures', 'seasonal', 'venues'] },
-};
+export const SCENARIOS = { conference, 'lab-dashboard': lab, 'trip-planner': trip, ...PAYABLES, ...KNOBS };
 
 const BUILDERS = [
   { id: 'build-html',  name: 'HTML Structure Builder', tags: ['html', 'markup', 'structure', 'frontend'] },
