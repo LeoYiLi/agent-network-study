@@ -83,7 +83,7 @@ export const ARMS = {
   // ---- legacy aliases ------------------------------------------------------
   public: {
     id: 'public',
-    access: 'store',                // what the earlier runs actually did
+    access: 'store',                // loads old result directories; the earliest runs (matched-E0) had no list or read tools
     directoryScope: 'all',          // sees all 100 cards
     rosterSize: null,
     namespace: 'per-contact',       // discarded at session close
