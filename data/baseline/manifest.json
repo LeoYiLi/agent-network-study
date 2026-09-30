@@ -1,0 +1,270 @@
+{
+ "format_version": 1,
+ "snapshot_date": "2026-10-01",
+ "description": "Baseline experiment records behind Study 1, the relay-hop check and the attribute studies of the AAMAS 2027 manuscript.",
+ "archives": [
+  {
+   "archive": "data/baseline/axis2x2.tar.gz",
+   "run_directory": "runs/axis2x2",
+   "role": "Study 1: formation x access at E in {0.3, 0.7}, plain cards",
+   "file_count": 720,
+   "uncompressed_bytes": 6195111,
+   "archive_bytes": 901598,
+   "sha256": "6bfe24d94aad648a250a8a2bf2728c067607eabd680afd5df9da40b059dd4da1",
+   "episode_summaries": 72,
+   "models": [
+    "deepseek/deepseek-v4-flash"
+   ],
+   "configurations": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "external_fraction": [
+    0.3,
+    0.7
+   ],
+   "scenarios": [
+    "conference",
+    "lab-dashboard",
+    "trip-planner"
+   ],
+   "seeds": [
+    1,
+    2,
+    3
+   ],
+   "summaries_written": [
+    "2026-09-01T17:53",
+    "2026-09-01T17:53"
+   ],
+   "source_checkout": "main",
+   "console_log": "runs/axis2x2.log (originally runs-axis2x2.log at the repository root)"
+  },
+  {
+   "archive": "data/baseline/realistic.tar.gz",
+   "run_directory": "runs/realistic",
+   "role": "Study 1: formation x access at E in {0.3, 0.7}, vetted and relational cards",
+   "file_count": 723,
+   "uncompressed_bytes": 5970728,
+   "archive_bytes": 878557,
+   "sha256": "8541af75e7895b61e579abe844926ce0a2c3eccc08af8fc4f12c9c4199ee100f",
+   "episode_summaries": 72,
+   "models": [
+    "deepseek/deepseek-v4-flash"
+   ],
+   "configurations": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "external_fraction": [
+    0.3,
+    0.7
+   ],
+   "scenarios": [
+    "conference",
+    "lab-dashboard",
+    "trip-planner"
+   ],
+   "seeds": [
+    1,
+    2,
+    3
+   ],
+   "summaries_written": [
+    "2026-09-01T18:10",
+    "2026-09-01T18:10"
+   ],
+   "source_checkout": "main",
+   "console_log": "runs/realistic.log (originally runs-realistic.log at the repository root)"
+  },
+  {
+   "archive": "data/baseline/matched-E0.tar.gz",
+   "run_directory": "runs/matched-E0",
+   "role": "Study 1 E = 0 check (public/private/hybrid under the pre-access-axis interface; public and private analysed)",
+   "file_count": 165,
+   "uncompressed_bytes": 1312453,
+   "archive_bytes": 157553,
+   "sha256": "2547d4702f88a999c3176a2863f6360fe8b5ac27f7e6ee8a1e638fa5de1a2d51",
+   "episode_summaries": 27,
+   "models": [
+    "deepseek/deepseek-v4-flash"
+   ],
+   "configurations": [
+    "hybrid",
+    "private",
+    "public"
+   ],
+   "external_fraction": [
+    0
+   ],
+   "scenarios": [
+    "conference",
+    "lab-dashboard",
+    "trip-planner"
+   ],
+   "seeds": [
+    1,
+    2,
+    3
+   ],
+   "summaries_written": [
+    "2026-09-01T10:14",
+    "2026-09-01T11:36"
+   ],
+   "source_checkout": "main"
+  },
+  {
+   "archive": "data/baseline/matched-E0-glm.tar.gz",
+   "run_directory": "runs/matched-E0-glm",
+   "role": "Second-model pilot of the E = 0 check on z-ai/glm-4.6 (cited in Limitations)",
+   "file_count": 107,
+   "uncompressed_bytes": 756198,
+   "archive_bytes": 96805,
+   "sha256": "e2c4d9279a94b8a538cd188b1be75ac56701968a6aeab75593451f2cbcfbf365",
+   "episode_summaries": 18,
+   "models": [
+    "z-ai/glm-4.6"
+   ],
+   "configurations": [
+    "hybrid",
+    "private",
+    "public"
+   ],
+   "external_fraction": [
+    0
+   ],
+   "scenarios": [
+    "conference",
+    "lab-dashboard",
+    "trip-planner"
+   ],
+   "seeds": [
+    1,
+    2
+   ],
+   "summaries_written": [
+    "2026-09-01T12:12",
+    "2026-09-01T12:43"
+   ],
+   "source_checkout": "main"
+  },
+  {
+   "archive": "data/baseline/scaling.tar.gz",
+   "run_directory": "runs/scaling",
+   "role": "Relay-hop check at E = 0.7 (edge cost 0 subset analysed; edge cost 1 and 2 episodes included unanalysed)",
+   "file_count": 1099,
+   "uncompressed_bytes": 10026012,
+   "archive_bytes": 1419851,
+   "sha256": "c11007c72304cd4c728e4a405139143f9fbc6af14a62dc47660c1dfea9293bf1",
+   "episode_summaries": 112,
+   "models": [
+    "deepseek/deepseek-v4-flash"
+   ],
+   "configurations": [
+    "A",
+    "C"
+   ],
+   "external_fraction": [
+    0.7
+   ],
+   "scenarios": [
+    "conference",
+    "lab-dashboard"
+   ],
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "summaries_written": [
+    "2026-09-02T11:35",
+    "2026-09-02T16:51"
+   ],
+   "source_checkout": "access-followup"
+  },
+  {
+   "archive": "data/baseline/seedaxis.tar.gz",
+   "run_directory": "runs/seedaxis",
+   "role": "Study 4: relationship profiles against a length-matched placebo",
+   "file_count": 714,
+   "uncompressed_bytes": 6115354,
+   "archive_bytes": 866517,
+   "sha256": "336fa3259cb5236c0634590c63f3a864e3c48996633f7fbc969a80852bd8718a",
+   "episode_summaries": 72,
+   "models": [
+    "deepseek/deepseek-v4-flash"
+   ],
+   "configurations": [
+    "A",
+    "C"
+   ],
+   "external_fraction": [
+    0.7
+   ],
+   "scenarios": [
+    "conference",
+    "lab-dashboard"
+   ],
+   "seeds": [
+    1,
+    2,
+    3
+   ],
+   "summaries_written": [
+    "2026-09-02T00:42",
+    "2026-09-02T06:54"
+   ],
+   "source_checkout": "access-followup"
+  },
+  {
+   "archive": "data/baseline/repscan.tar.gz",
+   "run_directory": "runs/repscan",
+   "role": "Study 4: accurate, random or absent reputation marks",
+   "file_count": 476,
+   "uncompressed_bytes": 5782409,
+   "archive_bytes": 806277,
+   "sha256": "6023cc24a235aeb7d2fa01bc0ca1569092c7a5694b4efd3d78374c00aab61c03",
+   "episode_summaries": 48,
+   "models": [
+    "deepseek/deepseek-v4-flash"
+   ],
+   "configurations": [
+    "A"
+   ],
+   "external_fraction": [
+    0.7
+   ],
+   "scenarios": [
+    "conference",
+    "lab-dashboard"
+   ],
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "summaries_written": [
+    "2026-09-03T04:05",
+    "2026-09-03T05:26"
+   ],
+   "source_checkout": "access-followup"
+  }
+ ],
+ "total_files": 4004,
+ "total_uncompressed_bytes": 36158265,
+ "total_archive_bytes": 5127158
+}
