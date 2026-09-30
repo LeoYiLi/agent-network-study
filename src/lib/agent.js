@@ -166,7 +166,13 @@ export async function runRequester({ goal, spec, notes, dir, arm, coord, log, be
     // agent would just be obeying the one route we told it about.
     ...(arm && arm.access === 'store'
       ? ['Two routes are open to you: ask an agent a specific question, or read an agent\'s store directly with list_store and read_store. Both cost you a turn. Use whichever you judge better, then hand a complete brief to a builder.']
-      : ['Search, ask a specific question, then hand a complete brief to a builder.']),
+      // 'answer' is the strong answer-only interface: no store tools, but the
+      // responder is not held to the sandbox rule, so it can hand over
+      // everything relevant in one reply, and the requester is told so in the
+      // same words the store route uses.
+      : arm && arm.access === 'answer'
+        ? ['Two ways of asking are open to you: ask an agent a specific question, or ask it for everything it holds that bears on your task, in one answer. Both cost you a turn. Use whichever you judge better, then hand a complete brief to a builder.']
+        : ['Search, ask a specific question, then hand a complete brief to a builder.']),
     'Agents can be wrong. If two agents contradict each other, prefer the one whose stated role owns that subject.',
     // Naming the field is the fair version of the test. Leaving it unexplained
     // would measure whether a model notices an undocumented key, not whether a

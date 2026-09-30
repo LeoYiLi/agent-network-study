@@ -60,6 +60,26 @@ export const ARMS = {
     grant: { maxUses: 1, ttlMinutes: 240 }, maxDepth: 0, requesterMemory: true,
   },
 
+  // ---- access taken apart -------------------------------------------------
+  // B and D differ from A and C in two ways at once: the requester can list
+  // and read a store verbatim, and responders are no longer held to the
+  // sandbox rule ("answer the specific question and nothing else"). Ab and Cb
+  // keep A's and C's formation settings and drop only the sandbox rule: no
+  // store tools, but a responder may hand over everything relevant in one
+  // answer. Ab-A and Cb-C measure the rule; B-Ab and D-Cb measure reading.
+  Ab: {
+    id: 'Ab', label: 'open + unrestricted answers',
+    directoryScope: 'all', rosterSize: null, access: 'answer',
+    namespace: 'per-contact', responderMemory: false, sharedWorkspace: false,
+    grant: { maxUses: 1, ttlMinutes: 240 }, maxDepth: 0, requesterMemory: true,
+  },
+  Cb: {
+    id: 'Cb', label: 'bounded + unrestricted answers',
+    directoryScope: 'roster', rosterSize: 20, access: 'answer',
+    namespace: 'persistent', responderMemory: true, sharedWorkspace: true,
+    grant: { ttlMinutes: 240 }, maxDepth: 5, requesterMemory: true,
+  },
+
   // ---- legacy aliases ------------------------------------------------------
   public: {
     id: 'public',
