@@ -39,6 +39,27 @@ export const ARMS = {
     grant: { ttlMinutes: 240 }, maxDepth: 5, requesterMemory: true,
   },
 
+  // ---- formation narrowed to directory scope ------------------------------
+  // C and D move six settings at once. Within a single beat only two of them
+  // act: which cards are visible, and whether a responder remembers the
+  // requester's earlier questions. sharedWorkspace is declared but read nowhere,
+  // namespace persistence only matters between beats, no grant was ever refused
+  // and no responder ever delegated. Cr and Dr keep the roster and set every
+  // other formation setting to its open value, so A-Cr and B-Dr isolate
+  // directory scope, and C-Cr and D-Dr isolate responder memory.
+  Cr: {
+    id: 'Cr', label: 'roster only + sandbox',
+    directoryScope: 'roster', rosterSize: 20, access: 'sandbox',
+    namespace: 'per-contact', responderMemory: false, sharedWorkspace: false,
+    grant: { maxUses: 1, ttlMinutes: 240 }, maxDepth: 0, requesterMemory: true,
+  },
+  Dr: {
+    id: 'Dr', label: 'roster only + store',
+    directoryScope: 'roster', rosterSize: 20, access: 'store',
+    namespace: 'per-contact', responderMemory: false, sharedWorkspace: false,
+    grant: { maxUses: 1, ttlMinutes: 240 }, maxDepth: 0, requesterMemory: true,
+  },
+
   // ---- legacy aliases ------------------------------------------------------
   public: {
     id: 'public',
